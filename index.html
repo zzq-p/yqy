@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta http-equiv="refresh" content="0;url=./logicsim-refactored/">
+  <title>LogicSim · 逻辑关系图</title>
+  <script>
+    /* 与编辑器共用主题选择，避免跳转瞬间闪白 */
+    (function () {
+      try {
+        var saved = localStorage.getItem('logicsim-theme');
+        var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      } catch (error) { /* 隐私模式等场景忽略 */ }
+    })();
+  </script>
+  <style>
+    :root{--ink:#16232e;--ink-2:#75899a;--bg:#eef2f6;--glow:#e2f1ee;--card:#fff;--line:#e3eaef;
+          --brand-a:#14907e;--brand-b:#0b5f54;--shadow:0 10px 30px rgba(16,33,46,.08);
+          font-family:"Inter",system-ui,-apple-system,"Segoe UI","PingFang SC","HarmonyOS Sans SC","Microsoft YaHei",sans-serif;color:var(--ink)}
+    :root[data-theme="dark"]{--ink:#e8eff3;--ink-2:#7c909d;--bg:#0c1317;--glow:#123029;--card:#151f25;--line:#26343d;
+          --brand-a:#25c4aa;--brand-b:#0d6b5e;--shadow:0 10px 30px rgba(0,0,0,.45)}
+    @media (prefers-color-scheme: dark){
+      :root:not([data-theme="light"]){--ink:#e8eff3;--ink-2:#7c909d;--bg:#0c1317;--glow:#123029;--card:#151f25;--line:#26343d;
+          --brand-a:#25c4aa;--brand-b:#0d6b5e;--shadow:0 10px 30px rgba(0,0,0,.45)}
+    }
+    body{margin:0;min-height:100dvh;display:grid;place-items:center;text-align:center;
+         background:radial-gradient(760px 420px at 50% -8%,var(--glow),transparent 70%),var(--bg);
+         transition:background-color .22s ease}
+    .card{max-width:420px;padding:38px 42px;background:var(--card);border:1px solid var(--line);border-radius:18px;
+          box-shadow:var(--shadow);transition:background-color .22s ease,border-color .22s ease}
+    .mark{width:44px;height:44px;margin:0 auto 18px;border-radius:14px;
+          background:linear-gradient(135deg,#6fe6cf,#17907e);
+          box-shadow:inset 0 0 0 1px rgba(255,255,255,.4),0 6px 16px rgba(13,103,92,.28)}
+    h1{margin:0 0 8px;font-size:20px;letter-spacing:-.2px}
+    p{margin:0 0 22px;font-size:13px;color:var(--ink-2)}
+    a{display:inline-block;padding:10px 20px;font-size:14px;font-weight:600;color:#fff;text-decoration:none;
+      border-radius:10px;background:linear-gradient(135deg,var(--brand-a),var(--brand-b));
+      box-shadow:0 4px 14px rgba(13,103,92,.3);transition:transform .16s ease,box-shadow .16s ease}
+    a:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(13,103,92,.36)}
+    a:focus-visible{outline:3px solid rgba(32,170,150,.6);outline-offset:2px}
+    @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="mark"></div>
+    <h1>LogicSim 逻辑关系图</h1>
+    <p>正在打开 · 所有计算均在本地完成</p>
+    <a href="./logicsim-refactored/">立即进入</a>
+  </main>
+</body>
+</html>
